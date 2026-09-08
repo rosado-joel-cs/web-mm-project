@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookstore — Masjid Muhammad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .price-row{ display:flex; align-items:center; justify-content:space-between; margin-top:10px; }
+  .price{ font-weight:800; font-family:var(--font-display); font-size:1.15rem; }
+  .add-to-cart{ padding:9px 16px; font-size:0.85rem; }
+  .cart-pill{
+    display:flex; align-items:center; gap:8px; color:var(--white);
+    background: rgba(255,255,255,0.08); padding:8px 14px; border-radius:999px; font-size:0.85rem; font-weight:700;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Masjid Muhammad<small>ATLANTIC CITY</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="has-dropdown">
+          <a href="about/index.html">About Us</a>
+          <div class="dropdown">
+            <a href="about/index.html">Our Story</a>
+            <a href="about/teachers.html">Meet Our Teachers</a>
+            <a href="about/news.html">News</a>
+          </div>
+        </li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="bookstore.html">Bookstore</a></li>
+        <li class="nav-donate"><a href="donate.html" class="btn btn-primary">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
+    <div>
+      <div class="crumb"><a href="index.html">Home</a> / Bookstore</div>
+      <h1>Masjid Bookstore</h1>
+      <p>Qur'ans, books, prayer essentials, and gifts — proceeds support the masjid.</p>
+    </div>
+    <div class="cart-pill">🛒 Cart: <span id="cart-count">0</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="pill-nav" data-filter-group=".product-item" style="margin-bottom:34px">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="books">Books</button>
+      <button data-filter="quran">Qur'ans</button>
+      <button data-filter="prayer">Prayer Essentials</button>
+      <button data-filter="apparel">Apparel</button>
+    </div>
+
+    <div class="card-grid cols-3">
+      <div class="card product-item" data-category="quran">
+        <div class="card-media"><img src="https://picsum.photos/seed/book-quran/500/320" alt=""></div>
+        <div class="card-body">
+          <span class="card-tag">Qur'an</span>
+          <h3>Mus'haf with English Translation</h3>
+          <p>Full mus'haf with facing-page translation and tajweed markings.</p>
+          <div class="price-row"><span class="price">$28.00</span><button class="btn btn-teal add-to-cart">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="card product-item" data-category="quran">
+        <div class="card-media"><img src="https://picsum.photos/seed/book-pocket-quran/500/320" alt=""></div>
+        <div class="card-body">
+          <span class="card-tag">Qur'an</span>
+          <h3>Pocket-Size Qur'an</h3>
+          <p>Compact Arabic-only mus'haf, ideal for travel and daily carry.</p>
+          <div class="price-row"><span class="price">$12.00</span><button class="btn btn-teal add-to-cart">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="card product-item" data-category="books">
+        <div class="card-media"><img src="https://picsum.photos/seed/book-seerah/500/320" alt=""></div>
+        <div class="card-body">
+          <span class="card-tag">Book</span>
+          <h3>The Sealed Nectar — Seerah</h3>
+          <p>A widely-read biography of the life of Prophet Muhammad ﷺ.</p>
+          <div class="price-row"><span class="price">$19.00</span><button class="btn btn-teal add-to-cart">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="card product-item" data-category="books">
+        <div class="card-media"><img src="https://picsum.photos/seed/book-fiqh/500/320" alt=""></div>
+        <div class="card-body">
+          <span class="card-tag">Book</span>
+          <h3>Fiqh Made Simple</h3>
+          <p>An accessible guide to worship and daily rulings for new and lifelong Muslims.</p>
+          <div class="price-row"><span class="price">$15.00</span><button class="btn btn-teal add-to-cart">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="card product-item" data-category="books">
+        <div class="card-media"><img src="https://picsum.photos/seed/book-kids-stories/500/320" alt=""></div>
+        <div class="card-body">
+          <span class="card-tag">Book</span>
+          <h3>Stories of the Prophets for Children</h3>
+          <p>Illustrated collection introducing young readers to the prophets.</p>
+          <div class="price-row"><span class="price">$14.00</span><button class="btn btn-teal add-to-cart">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="card product-item" data-category="prayer">
+        <div class="card-media"><img src="https://picsum.photos/seed/prayer-rug/500/320" alt=""></div>
+        <div class="card-body">
+          <span class="card-tag">Prayer Essentials</span>
+          <h3>Woven Prayer Rug</h3>
+          <p>Padded, non-slip prayer rug available in several colors.</p>
+          <div class="price-row"><span class="price">$22.00</span><button class="btn btn-teal add-to-cart">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="card product-item" data-category="prayer">
+        <div class="card-media"><img src="https://picsum.photos/seed/tasbih/500/320" alt=""></div>
+        <div class="card-body">
+          <span class="card-tag">Prayer Essentials</span>
+          <h3>99-Bead Tasbih</h3>
+          <p>Wooden tasbih for daily dhikr, available in several finishes.</p>
+          <div class="price-row"><span class="price">$8.00</span><button class="btn btn-teal add-to-cart">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="card product-item" data-category="apparel">
+        <div class="card-media"><img src="https://picsum.photos/seed/kufi/500/320" alt=""></div>
+        <div class="card-body">
+          <span class="card-tag">Apparel</span>
+          <h3>Embroidered Kufi Cap</h3>
+          <p>Cotton kufi cap available in white, black, and grey.</p>
+          <div class="price-row"><span class="price">$10.00</span><button class="btn btn-teal add-to-cart">Add to Cart</button></div>
+        </div>
+      </div>
+      <div class="card product-item" data-category="apparel">
+        <div class="card-media"><img src="https://picsum.photos/seed/abaya/500/320" alt=""></div>
+        <div class="card-body">
+          <span class="card-tag">Apparel</span>
+          <h3>Everyday Abaya</h3>
+          <p>Simple, breathable abaya in modest cuts, sizes S–XL.</p>
+          <div class="price-row"><span class="price">$35.00</span><button class="btn btn-teal add-to-cart">Add to Cart</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>Masjid Muhammad</h4>
+        <p>A community mosque serving Atlantic City with prayer, education, and support for every stage of life.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about/index.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="bookstore.html">Bookstore</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="about/teachers.html">Meet Our Teachers</a></li>
+          <li><a href="about/news.html">News</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>300 N. Albany Ave.<br>Atlantic City, NJ 08401</li>
+          <li>info@masjidmuhammad.org</li>
+          <li>(609) 555-0148</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Masjid Muhammad. All rights reserved.</span>
+      <span>Template site — content is placeholder</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

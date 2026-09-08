@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Our Teachers — Masjid Muhammad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .teacher-card{ display:grid; grid-template-columns: 140px 1fr; gap:20px; padding:24px; }
+  .teacher-photo{ width:140px; height:140px; border-radius:var(--arch); overflow:hidden; }
+  .teacher-photo img{ width:100%; height:100%; object-fit:cover; }
+  .teacher-subjects{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .teacher-subjects span{ font-size:0.75rem; font-weight:700; background:var(--slate-dim); color:var(--ink); padding:4px 10px; border-radius:999px; }
+  @media (max-width:520px){ .teacher-card{ grid-template-columns: 1fr; } .teacher-photo{ width:100px; height:100px; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a href="../index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Masjid Muhammad<small>ATLANTIC CITY</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li class="has-dropdown">
+          <a href="index.html">About Us</a>
+          <div class="dropdown">
+            <a href="index.html">Our Story</a>
+            <a href="teachers.html">Meet Our Teachers</a>
+            <a href="news.html">News</a>
+          </div>
+        </li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../videos.html">Videos</a></li>
+        <li><a href="../bookstore.html">Bookstore</a></li>
+        <li class="nav-donate"><a href="../donate.html" class="btn btn-primary">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb"><a href="../index.html">Home</a> / <a href="index.html">About Us</a> / Meet Our Teachers</div>
+    <h1>Meet our teachers</h1>
+    <p>The imam and instructors who lead prayer, teach our classes, and support the community day to day.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="card-grid cols-2">
+      <div class="card teacher-card">
+        <div class="teacher-photo"><img src="https://picsum.photos/seed/imam1/300/300" alt="Imam of Masjid Muhammad"></div>
+        <div>
+          <h3>Imam Yusuf Rahman</h3>
+          <p>Leads the five daily prayers and delivers the Friday khutbah. Imam Yusuf has served the community for over a decade and oversees the weekend school curriculum.</p>
+          <div class="teacher-subjects"><span>Khutbah</span><span>Fiqh</span><span>Counseling</span></div>
+        </div>
+      </div>
+      <div class="card teacher-card">
+        <div class="teacher-photo"><img src="https://picsum.photos/seed/teacher2/300/300" alt="Qur'an teacher"></div>
+        <div>
+          <h3>Ustadha Amina Bello</h3>
+          <p>Teaches Qur'an memorization and tajweed to children and adults, and coordinates the sisters' study circle each week.</p>
+          <div class="teacher-subjects"><span>Qur'an</span><span>Tajweed</span></div>
+        </div>
+      </div>
+      <div class="card teacher-card">
+        <div class="teacher-photo"><img src="https://picsum.photos/seed/teacher3/300/300" alt="Arabic teacher"></div>
+        <div>
+          <h3>Ustadh Bilal Carter</h3>
+          <p>Teaches Arabic language classes for beginners through advanced students, and assists with youth programming.</p>
+          <div class="teacher-subjects"><span>Arabic</span><span>Youth Programs</span></div>
+        </div>
+      </div>
+      <div class="card teacher-card">
+        <div class="teacher-photo"><img src="https://picsum.photos/seed/teacher4/300/300" alt="Seerah teacher"></div>
+        <div>
+          <h3>Ustadha Maryam Idris</h3>
+          <p>Leads the weekend seerah and Islamic studies classes for children, and organizes the annual Ramadan program for kids.</p>
+          <div class="teacher-subjects"><span>Seerah</span><span>Islamic Studies</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>Masjid Muhammad</h4>
+        <p>A community mosque serving Atlantic City with prayer, education, and support for every stage of life.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../videos.html">Videos</a></li>
+          <li><a href="../bookstore.html">Bookstore</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="teachers.html">Meet Our Teachers</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="../donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>300 N. Albany Ave.<br>Atlantic City, NJ 08401</li>
+          <li>info@masjidmuhammad.org</li>
+          <li>(609) 555-0148</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Masjid Muhammad. All rights reserved.</span>
+      <span>Template site — content is placeholder</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate — Masjid Muhammad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .donate-panel{
+    background:var(--white); border:1px solid var(--slate-dim); border-radius:var(--radius-sm);
+    padding:32px; box-shadow: var(--shadow);
+  }
+  .cause-select{ display:grid; gap:10px; margin-bottom:24px; }
+  .cause-select label{
+    display:flex; align-items:center; gap:12px; padding:14px 16px;
+    border:1px solid var(--slate); border-radius:var(--radius-sm); cursor:pointer; font-weight:600;
+  }
+  .cause-select input{ accent-color: var(--emerald); }
+  .amount-row{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px; }
+  .amount-chip{
+    padding:12px 18px; border:1px solid var(--slate); border-radius:999px; cursor:pointer;
+    background:var(--white); font-weight:700; transition:all .2s ease;
+  }
+  .amount-chip.active,.amount-chip:hover{ background:var(--ink); color:var(--white); border-color:var(--ink); }
+  .freq-toggle{ display:flex; border:1px solid var(--slate); border-radius:999px; overflow:hidden; width:fit-content; margin-bottom:24px; }
+  .freq-toggle button{ padding:10px 20px; border:none; background:var(--white); cursor:pointer; font-weight:700; }
+  .freq-toggle button.active{ background:var(--spring); }
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-weight:700; font-size:0.9rem; margin-bottom:6px; }
+  .field input{ width:100%; padding:12px 14px; border:1px solid var(--slate); border-radius:var(--radius-sm); font-family:var(--font-body); font-size:1rem; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Masjid Muhammad<small>ATLANTIC CITY</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="has-dropdown">
+          <a href="about/index.html">About Us</a>
+          <div class="dropdown">
+            <a href="about/index.html">Our Story</a>
+            <a href="about/teachers.html">Meet Our Teachers</a>
+            <a href="about/news.html">News</a>
+          </div>
+        </li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="bookstore.html">Bookstore</a></li>
+        <li class="nav-donate"><a href="donate.html" class="btn btn-primary">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb"><a href="index.html">Home</a> / Donate</div>
+    <h1>Give sadaqah, support the masjid</h1>
+    <p>Your contribution keeps our lights on, our teachers paid, and our doors open to every family who needs us.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container two-col">
+    <div>
+      <h2>Where your donation goes</h2>
+      <p>Masjid Muhammad relies entirely on community giving. Every fund below supports a specific part of our work.</p>
+      <ul class="list-check" style="margin-top:20px">
+        <li><strong>General Fund</strong> — utilities, staff, and daily operations</li>
+        <li><strong>Zakat Fund</strong> — distributed directly to families in need</li>
+        <li><strong>Building Fund</strong> — expansion of the prayer hall and classrooms</li>
+        <li><strong>Sadaqah</strong> — flexible giving used where it's needed most</li>
+      </ul>
+      <img src="https://picsum.photos/seed/donate-hall/700/460" alt="Community hall at Masjid Muhammad" style="border-radius:var(--radius-sm);margin-top:28px;box-shadow:var(--shadow)">
+    </div>
+
+    <div class="donate-panel">
+      <h3 style="margin-bottom:18px">Make a donation</h3>
+
+      <div class="freq-toggle">
+        <button class="active" type="button">One-time</button>
+        <button type="button">Monthly</button>
+      </div>
+
+      <div class="cause-select">
+        <label><input type="radio" name="cause" checked> General Fund</label>
+        <label><input type="radio" name="cause"> Zakat Fund</label>
+        <label><input type="radio" name="cause"> Building Fund</label>
+        <label><input type="radio" name="cause"> Sadaqah</label>
+      </div>
+
+      <div class="amount-row">
+        <button class="amount-chip" type="button" data-amount="25">$25</button>
+        <button class="amount-chip active" type="button" data-amount="50">$50</button>
+        <button class="amount-chip" type="button" data-amount="100">$100</button>
+        <button class="amount-chip" type="button" data-amount="250">$250</button>
+      </div>
+
+      <div class="field">
+        <label for="custom-amount">Custom amount ($)</label>
+        <input type="number" id="custom-amount" value="50" min="1">
+      </div>
+      <div class="field">
+        <label for="donor-name">Full name</label>
+        <input type="text" id="donor-name" placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="donor-email">Email</label>
+        <input type="email" id="donor-email" placeholder="you@example.com">
+      </div>
+
+      <button type="button" class="btn btn-primary" style="width:100%;justify-content:center" onclick="alert('This is a template — connect Stripe or PayPal here to accept real payments.')">Donate Now</button>
+      <p style="font-size:0.8rem;color:#6b6f6d;margin-top:14px;margin-bottom:0">Secure payment placeholder — connect Stripe or PayPal to activate real donations.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>Masjid Muhammad</h4>
+        <p>A community mosque serving Atlantic City with prayer, education, and support for every stage of life.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about/index.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="bookstore.html">Bookstore</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="about/teachers.html">Meet Our Teachers</a></li>
+          <li><a href="about/news.html">News</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>300 N. Albany Ave.<br>Atlantic City, NJ 08401</li>
+          <li>info@masjidmuhammad.org</li>
+          <li>(609) 555-0148</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Masjid Muhammad. All rights reserved.</span>
+      <span>Template site — content is placeholder</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script>
+  document.querySelectorAll('.freq-toggle button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.freq-toggle button').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
