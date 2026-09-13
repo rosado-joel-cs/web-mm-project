@@ -1,6 +1,6 @@
 /* =========================================================
    Masjid Muhammad — shared styles
-   Palette: Black / Spring Green / Emerald / Pale Slate / Teal
+   Palette: Black / Sage Green / Forest Green / Pale Slate / Dusty Olive
    Type: Fraunces (display) + Karla (body)
    Motif: mihrab arch, used for image frames + dividers
    ========================================================= */
@@ -11,9 +11,9 @@
   --white:      #ffffff;
   --slate:      #d2d5dd;
   --slate-dim:  #eef0f3;
-  --spring:     #2afc98;
-  --emerald:    #16c172;
-  --teal:       #177e89;
+  --sage-green:    #799970;
+  --forest-green:  #3B8830;
+  --dusty-olive:   #69845C;
 
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Karla", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -55,7 +55,7 @@ section{ padding: 88px 0; }
 @media (max-width: 720px){ section{ padding: 56px 0; } }
 
 :focus-visible{
-  outline: 3px solid var(--teal);
+  outline: 3px solid var(--dusty-olive);
   outline-offset: 3px;
 }
 
@@ -78,14 +78,14 @@ section{ padding: 88px 0; }
   transition: transform 0.15s ease, background 0.2s ease, border-color .2s ease, color .2s ease;
 }
 .btn:hover{ transform: translateY(-2px); }
-.btn-primary{ background: var(--spring); color: var(--ink); }
-.btn-primary:hover{ background: var(--emerald); color: var(--white); }
-.btn-outline{ border-color: var(--slate); color: var(--white); }
-.btn-outline:hover{ border-color: var(--spring); color: var(--spring); }
+.btn-primary{ background: var(--sage-green); color: var(--ink); }
+.btn-primary:hover{ background: var(--forest-green); color: var(--white); }
+.btn-outline{ border-color: var(--sage-green); color: var(--ink); }
+.btn-outline:hover{ border-color: var(--forest-green); color: var(--sage-green); }
 .btn-dark{ border-color: var(--ink); color: var(--ink); }
 .btn-dark:hover{ background: var(--ink); color: var(--white); }
-.btn-teal{ background: var(--teal); color: var(--white); }
-.btn-teal:hover{ background: var(--ink); }
+.btn-dusty-olive{ background: var(--dusty-olive); color: var(--white); }
+.btn-dusty-olive:hover{ background: var(--ink); }
 
 /* ---------- Header / Nav ---------- */
 .site-header{
@@ -105,7 +105,7 @@ section{ padding: 88px 0; }
 }
 .brand-mark{
   width:38px; height:38px; flex:none;
-  background: var(--spring);
+  background: var(--sage-green);
   clip-path: path("M19 2 C 27 2 33 10 33 19 L33 36 L5 36 L5 19 C5 10 11 2 19 2 Z");
 }
 .brand-text{
@@ -187,7 +187,7 @@ section{ padding: 88px 0; }
 
 /* ---------- Hero ---------- */
 .hero{
-  background: var(--ink);
+  background: var(--white);
   color: var(--white);
   padding: 72px 0 100px;
   position:relative;
@@ -198,10 +198,10 @@ section{ padding: 88px 0; }
 }
 .hero-eyebrow-free h1{
   font-size: clamp(2.4rem, 4.2vw, 3.6rem);
-  color: var(--white);
+  color: var(--ink);
   margin-bottom: 0.35em;
 }
-.hero p.lede{ color: var(--slate); font-size: 1.1rem; max-width: 46ch; }
+.hero p.lede{ color: var(--ink); font-size: 1.1rem; max-width: 46ch; }
 .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top: 28px; }
 .hero-arch{
   position:relative;
@@ -224,7 +224,7 @@ section{ padding: 88px 0; }
   padding: 12px 16px;
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
-  border-left: 3px solid var(--spring);
+  border-left: 3px solid var(--sage-green);
 }
 @media (max-width: 900px){
   .hero .container{ grid-template-columns: 1fr; }
@@ -289,8 +289,8 @@ section{ padding: 88px 0; }
 .card-tag{
   align-self:flex-start;
   font-size: 0.75rem; font-weight:700;
-  color: var(--teal);
-  background: rgba(23,126,137,0.1);
+  color: var(--dusty-olive);
+  background: rgba(105,132,92,0.1);
   padding: 4px 10px; border-radius: 999px;
   margin-bottom: 12px;
 }
@@ -305,7 +305,7 @@ section{ padding: 88px 0; }
 
 /* ---------- Band (dark cta) ---------- */
 .band{
-  background: var(--teal);
+  background: var(--dusty-olive);
   color: var(--white);
   padding: 64px 0;
 }
@@ -317,7 +317,7 @@ section{ padding: 88px 0; }
 
 /* ---------- Info strip ---------- */
 .info-strip{
-  background: var(--slate-dim);
+  background: var(--sage-green);
   border-top: 1px solid var(--slate);
   border-bottom: 1px solid var(--slate);
 }
@@ -325,7 +325,7 @@ section{ padding: 88px 0; }
   display:grid; grid-template-columns: repeat(4,1fr); gap: 24px; padding-top: 30px; padding-bottom:30px;
 }
 @media (max-width:800px){ .info-strip .container{ grid-template-columns: 1fr 1fr; } }
-.info-item h4{ font-size: 0.85rem; text-transform:none; color: var(--teal); margin-bottom:4px; }
+.info-item h4{ font-size: 0.85rem; text-transform:none; color: var(--white); margin-bottom:4px; }
 .info-item p{ margin:0; font-weight:700; }
 
 /* ---------- Footer ---------- */
@@ -338,7 +338,7 @@ section{ padding: 88px 0; }
 @media (max-width: 480px){ .footer-grid{ grid-template-columns: 1fr; } }
 .footer-grid h4{ color: var(--white); font-family: var(--font-body); font-size: 0.95rem; margin-bottom: 16px; }
 .footer-grid li{ margin-bottom: 10px; font-size: 0.92rem; }
-.footer-grid a:hover{ color: var(--spring); }
+.footer-grid a:hover{ color: var(--sage-green); }
 .footer-bottom{
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
   padding-top: 24px; font-size: 0.85rem; color: rgba(255,255,255,0.55);
@@ -352,7 +352,7 @@ section{ padding: 88px 0; }
 }
 .page-hero h1{ color: var(--white); font-size: clamp(2rem, 3.6vw, 2.8rem); }
 .page-hero .crumb{ color: var(--slate); font-size: 0.9rem; margin-bottom: 14px; }
-.page-hero .crumb a:hover{ color: var(--spring); }
+.page-hero .crumb a:hover{ color: var(--sage-green); }
 .page-hero p{ color: var(--slate); max-width: 60ch; margin:0; }
 
 /* ---------- Utility ---------- */
@@ -370,5 +370,5 @@ section{ padding: 88px 0; }
 .list-check li{ padding-left: 28px; position:relative; margin-bottom:10px; }
 .list-check li::before{
   content:""; position:absolute; left:0; top:8px; width:14px; height:14px;
-  border-radius:3px; background: var(--spring);
+  border-radius:3px; background: var(--sage-green);
 }
