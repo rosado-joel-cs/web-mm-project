@@ -24,12 +24,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Highlight current page in nav
-  var here = window.location.pathname.split('/').pop() || 'index.html';
+  // Highlight current page in nav.
+  // Resolve each link's href against the actual current URL so links that
+  // share the same filename in different folders (e.g. "about/index.html"
+  // vs "index.html") don't both get marked active.
+  var currentPath = window.location.pathname.replace(/^\/+/, '');
+
   document.querySelectorAll('.main-nav a[href]').forEach(function (a) {
-    var target = a.getAttribute('href').split('/').pop();
-    if (target === here) a.classList.add('active');
+    var href = a.getAttribute('href');
+    var resolvedPath = new URL(href, window.location.href).pathname.replace(/^\/+/, '');
+    if (resolvedPath === currentPath) a.classList.add('active');
   });
+
+  // Keep "About Us" highlighted whenever we're on ANY page inside the
+  // about/ section (Our Story, Meet Our Teachers, News), even though
+  // those are separate pages and only one of them can match exactly above.
+  var currentFolderPath = new URL('.', window.location.href).pathname.replace(/^\/+/, '');
+  if (currentFolderPath.indexOf('about/') !== -1 || currentPath.indexOf('about/') === 0) {
+    var aboutTopLink = document.querySelector('.has-dropdown > a');
+    if (aboutTopLink) aboutTopLink.classList.add('active');
+  }
 
   // Simple pill filters (news / bookstore)
   document.querySelectorAll('[data-filter-group]').forEach(function (group) {
@@ -70,4 +84,44 @@ document.addEventListener('DOMContentLoaded', function () {
       if (input) input.value = chip.getAttribute('data-amount');
     });
   });
+
+  // ---------- Live prayer times (Aladhan API — Atlantic City, NJ, ISNA method) ----------
+  function formatTime12h(time24) {
+    if (!time24) return '--:--';
+    var cleanTime = time24.split(' ')[0]; // strip any timezone suffix Aladhan appends
+    var parts = cleanTime.split(':').map(Number);
+    var hours = parts[0], minutes = parts[1];
+    var period = hours >= 12 ? 'PM' : 'AM';
+    var hours12 = hours % 12 || 12;
+    return hours12 + ':' + minutes.toString().padStart(2, '0') + ' ' + period;
+  }
+
+  function fetchPrayerTimes() {
+    // Atlantic City, NJ coordinates. method=2 = Islamic Society of North America (ISNA).
+    var apiUrl = 'https://api.aladhan.com/v1/timings?latitude=39.3643&longitude=-74.4229&method=2';
+
+    fetch(apiUrl)
+      .then(function (response) { return response.json(); })
+      .then(function (data) {
+        var timings = data && data.data && data.data.timings;
+        if (!timings) return;
+
+        var ids = {
+          Fajr: 'fajr-time',
+          Dhuhr: 'dhuhr-time',
+          Asr: 'asr-time',
+          Maghrib: 'maghrib-time',
+          Isha: 'isha-time'
+        };
+        Object.keys(ids).forEach(function (prayer) {
+          var el = document.getElementById(ids[prayer]);
+          if (el) el.textContent = formatTime12h(timings[prayer]);
+        });
+      })
+      .catch(function (error) {
+        console.error('Error fetching prayer times:', error);
+      });
+  }
+
+  fetchPrayerTimes();
 });

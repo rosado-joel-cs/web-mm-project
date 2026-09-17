@@ -1,8 +1,5 @@
 /* =========================================================
-   Masjid Muhammad — shared styles
-   Palette: Black / Sage Green / Forest Green / Pale Slate / Dusty Olive
-   Type: Fraunces (display) + Karla (body)
-   Motif: mihrab arch, used for image frames + dividers
+   Masjid Muhammad css
    ========================================================= */
 
 :root{
@@ -133,8 +130,13 @@ section{ padding: 88px 0; }
   transition: color .2s ease, background .2s ease;
   display:block;
 }
-.main-nav a:hover, .main-nav a.active{ color: var(--white); background: rgba(255,255,255,0.06); }
-.has-dropdown{ position:relative; }
+.main-nav a:hover, .main-nav a.active{ 
+  color: var(--ink); 
+  background: var(--sage-green); }
+
+.has-dropdown{ 
+  position:relative; }
+
 .dropdown{
   position:absolute; top: calc(100% + 8px); left:0;
   background: var(--white);
@@ -205,7 +207,7 @@ section{ padding: 88px 0; }
 .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top: 28px; }
 .hero-arch{
   position:relative;
-  aspect-ratio: 4/5;
+  aspect-ratio: 5/5;
   border-radius: var(--arch);
   overflow:hidden;
   border: 1px solid rgba(255,255,255,0.12);
@@ -214,17 +216,17 @@ section{ padding: 88px 0; }
 .hero-arch::after{
   content:"";
   position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 85%, rgba(0,0,0,0.55) 100%);
 }
 .hero-badge{
   position:absolute; left:20px; bottom:20px; z-index:2;
   background: rgba(10,10,10,0.7);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(1px);
   color: var(--white);
-  padding: 12px 16px;
+  padding: 1px 16px;
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
-  border-left: 3px solid var(--sage-green);
+  border-left: 5px solid var(--sage-green);
 }
 @media (max-width: 900px){
   .hero .container{ grid-template-columns: 1fr; }
@@ -315,17 +317,19 @@ section{ padding: 88px 0; }
 .band h2{ color:var(--white); margin-bottom:6px; }
 .band p{ color: rgba(255,255,255,0.85); margin:0; }
 
-/* ---------- Info strip ---------- */
+/* ---------- Info strip (live prayer times) ---------- */
 .info-strip{
   background: var(--sage-green);
   border-top: 1px solid var(--slate);
   border-bottom: 1px solid var(--slate);
 }
 .info-strip .container{
-  display:grid; grid-template-columns: repeat(4,1fr); gap: 24px; padding-top: 30px; padding-bottom:30px;
+  display:grid; grid-template-columns: repeat(5,1fr); gap: 24px; padding-top: 30px; padding-bottom:30px;
 }
 @media (max-width:800px){ .info-strip .container{ grid-template-columns: 1fr 1fr; } }
-.info-item h4{ font-size: 0.85rem; text-transform:none; color: var(--white); margin-bottom:4px; }
+@media (max-width:480px){ .info-strip .container{ grid-template-columns: 1fr; } }
+.info-item{ text-align:center; }
+.info-item h4{ font-size: 0.85rem; text-transform:uppercase; letter-spacing:0.04em; color: var(--white); margin-bottom:4px; }
 .info-item p{ margin:0; font-weight:700; }
 
 /* ---------- Footer ---------- */
